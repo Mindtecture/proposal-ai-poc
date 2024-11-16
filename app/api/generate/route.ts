@@ -8,7 +8,13 @@ const requestSchema = z.object({
   industry: z.string().min(2, "Industry must be at least 2 characters"),
   projectScope: z.string().min(10, "Project scope must be at least 10 characters"),
   budget: z.string().min(1, "Budget information is required"),
-  model: z.enum(["gpt-3.5-turbo", "gpt-4"], {
+  model: z.enum(["gpt-3.5-turbo", 
+  "gpt-4", 
+  "gpt-4-turbo", 
+  "gpt-4o", 
+  "gpt-4o-mini", 
+  "o1", 
+  "o1-mini"], {
     errorMap: () => ({ message: "Invalid model selection" }),
   }),
 });

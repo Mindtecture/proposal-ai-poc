@@ -20,7 +20,15 @@ const formSchema = z.object({
   industry: z.string().min(2, "Industry must be at least 2 characters"),
   projectScope: z.string().min(10, "Project scope must be at least 10 characters"),
   budget: z.string().min(1, "Budget information is required").max(200, "Budget description is too long"),
-  model: z.enum(["gpt-3.5-turbo", "gpt-4"]),
+  model: z.enum([
+    "gpt-3.5-turbo", 
+    "gpt-4", 
+    "gpt-4-turbo", 
+    "gpt-4o", 
+    "gpt-4o-mini", 
+    "o1", 
+    "o1-mini"
+  ]),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -174,9 +182,15 @@ export function ProposalForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo</SelectItem>
-                    <SelectItem value="gpt-4">GPT-4</SelectItem>
-                  </SelectContent>
+  <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo</SelectItem>
+  <SelectItem value="gpt-4">GPT-4</SelectItem>
+  <SelectItem value="gpt-4-turbo">GPT-4 Turbo</SelectItem>
+  <SelectItem value="gpt-4o">GPT-4o</SelectItem>
+  <SelectItem value="gpt-4o-mini">GPT-4o Mini</SelectItem>
+  <SelectItem value="o1">o1</SelectItem>
+  <SelectItem value="o1-mini">o1 Mini</SelectItem>
+</SelectContent>
+
                 </Select>
                 <FormMessage />
               </FormItem>
